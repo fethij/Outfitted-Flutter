@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "899720153742",
+    "firebase_url": "https://outfitted-4da25.firebaseio.com",
+    "project_id": "outfitted-4da25",
+    "storage_bucket": "outfitted-4da25.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:899720153742:android:4af8efec364bc1158f17df",
+        "android_client_info": {
+          "package_name": "com.example.outfitted_flutter_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "899720153742-jnq25m29oq21r41214dvh8tdjmgkdmkk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFeX03u0np3yG7b1xCZEk1402bi3DMirI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "899720153742-jnq25m29oq21r41214dvh8tdjmgkdmkk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

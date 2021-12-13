@@ -1,0 +1,134 @@
+@startuml
+set namespaceSeparator ::
+
+class "outfitted_flutter_mobile::counters::address_changer.dart::AddressChanger" {
+  -int _counter
+  +int count
+  +dynamic displayResult()
+}
+
+"flutter::src::foundation::change_notifier.dart::ChangeNotifier" <|-- "outfitted_flutter_mobile::counters::address_changer.dart::AddressChanger"
+
+class "outfitted_flutter_mobile::counters::cart_item_counter.dart::CartItemCounter" {
+  -int _counter
+  +int count
+  +Future displayItemCounterResult()
+}
+
+"flutter::src::foundation::change_notifier.dart::ChangeNotifier" <|-- "outfitted_flutter_mobile::counters::cart_item_counter.dart::CartItemCounter"
+
+class "outfitted_flutter_mobile::counters::item_quantity.dart::ItemQuantity" {
+  -int _numberOfItems
+  +int numberOfItems
+  +dynamic displayItemQuantity()
+}
+
+"flutter::src::foundation::change_notifier.dart::ChangeNotifier" <|-- "outfitted_flutter_mobile::counters::item_quantity.dart::ItemQuantity"
+
+class "outfitted_flutter_mobile::counters::total_amount.dart::TotalAmount" {
+  -double _totalAmount
+  +double totalAmount
+  +dynamic displayTotalAmountResult()
+}
+
+"flutter::src::foundation::change_notifier.dart::ChangeNotifier" <|-- "outfitted_flutter_mobile::counters::total_amount.dart::TotalAmount"
+
+class "outfitted_flutter_mobile::model::Address.dart::Address" {
+  +String name
+  +String streetAndNumber
+  +String postCode
+  +String cityOrTown
+  +String phone
+  +String country
+  +Map createAddressToJson()
+  +Address getAddressFromJson()
+}
+
+class "outfitted_flutter_mobile::model::Cart.dart::Cart" {
+  +Product product
+  +int amountItems
+}
+
+"outfitted_flutter_mobile::model::Cart.dart::Cart" o-- "outfitted_flutter_mobile::model::Product.dart::Product"
+
+class "outfitted_flutter_mobile::model::CollectionCategory.dart::CollectionCategory" {
+  +dynamic id
+  +dynamic categoryName
+  +dynamic categoryImage
+  +Map toJson()
+}
+
+class "outfitted_flutter_mobile::model::Product.dart::Product" {
+  +String id
+  +String name
+  +String productImage
+  +String supplier
+  +String productDescription
+  +int stock
+  +double price
+  +Product getProductFromJson()
+  +Map toJson()
+  +Map toJsonApi()
+}
+
+class "outfitted_flutter_mobile::model::Wishlist.dart::WishList" {
+  +Product product
+}
+
+"outfitted_flutter_mobile::model::Wishlist.dart::WishList" o-- "outfitted_flutter_mobile::model::Product.dart::Product"
+
+class "outfitted_flutter_mobile::screens::search_product_screen.dart::SearchProductScreen" {
+  +_SearchProductScreenState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "outfitted_flutter_mobile::screens::search_product_screen.dart::SearchProductScreen"
+
+class "outfitted_flutter_mobile::screens::search_product_screen.dart::_SearchProductScreenState" {
+  +List<QueryDocumentSnapshot> productSearchList
+  +List<QueryDocumentSnapshot> newProductSearchList
+  +bool isNotSearching
+  +bool noResults
+  +Future updateSearch()
+  +Widget getContent()
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State<T>" <|-- "outfitted_flutter_mobile::screens::search_product_screen.dart::_SearchProductScreenState"
+
+class "outfitted_flutter_mobile::screens::login_screen.dart::LoginScreen" {
+  +_LoginScreenState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "outfitted_flutter_mobile::screens::login_screen.dart::LoginScreen"
+
+class "outfitted_flutter_mobile::screens::login_screen.dart::_LoginScreenState" {
+  +TextEditingController email
+  +TextEditingController password
+  +bool isPasswordInvisible
+  +Widget build()
+  +Future readData(User fUser)
+  +void signInCustomer()
+}
+
+"flutter::src::widgets::framework.dart::State<T>" <|-- "outfitted_flutter_mobile::screens::login_screen.dart::_LoginScreenState"
+
+class "outfitted_flutter_mobile::screens::register_screen.dart::RegisterScreen" {
+  +_RegisterScreenState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "outfitted_flutter_mobile::screens::register_screen.dart::RegisterScreen"
+
+class "outfitted_flutter_mobile::screens::register_screen.dart::_RegisterScreenState" {
+  +TextEditingController name
+  +TextEditingController email
+  +TextEditingController password
+  +TextEditingController confirmPassword
+  +bool isPasswordInvisible
+  +Widget build()
+  +Future saveCustomerInfo(User fUser)
+  +void registerCustomer()
+}
+
+"flutter::src::widgets::framework.dart::State<T>" <|-- "outfitted_flutter_mobile::screens::register_screen.dart::_RegisterScreenState"
+
+@enduml
